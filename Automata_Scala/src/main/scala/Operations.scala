@@ -1,11 +1,12 @@
 import Constants.FILE_PATH
 
+import scala.io.Source
 import scala.io.Source.fromFile
 import scala.io.StdIn.readLine
 object Operations {
 
   /**
-   * Funcion que lee el contenido de un archivo y regresa su contenido
+   * Función que lee el contenido de un archivo y regresa su contenido
    * @param path dirección del archivo
    * @return contenido del archivo
    */
@@ -14,7 +15,7 @@ object Operations {
   }
 
   /**
-   *
+   *  Función que recibe el contenido de un archivo y separa en estados iniciales, finales y transiciones
    * @param fileContent contenido del archivo
    * @return arrays que contienen la especificación formal de los automatas (transiciones, edoFinales, edoIniciales)
    */
@@ -61,13 +62,13 @@ object Operations {
    * @param automata automata
    * @param initialState estado inicial
    */
-  def validateAndProcessString(inputString: String, automata: Automata, initialState: Char): Unit = {
+  private def processWord(inputString: String, automata: Automata, initialState: Char): Unit = {
 
     // Verificar si el usuario desea concluir
     if (inputString.toLowerCase() != "fin") {
       var actualState = initialState
-      for (charc <- inputString) {
-        actualState = automata.pivote(actualState, charc)
+      for (character <- inputString) {
+        actualState = automata.pivote(actualState, character)
       }
       if (automata.isFinalState(actualState)) {
         println("\nPalabra aceptada")
@@ -92,16 +93,16 @@ object Operations {
     printAutomataInformation(transitions, initialState, finalStates)
 
     var inputString = ""
-    do {
+
+    while (inputString.toLowerCase() != "fin") {
       println("Ingrese una cadena (o escriba 'fin' para concluir): ")
       inputString = readLine()
 
       // Llamar a la función para validar y procesar la cadena de entrada
       if (inputString.toLowerCase() != "fin") {
-        validateAndProcessString(inputString, new Automata(initialState, finalStates, transitions), initialState)
+        processWord(inputString, new Automata(initialState, finalStates, transitions), initialState)
       }
-    } while (inputString.toLowerCase() != "fin")
-
+    }
 
 
   }
