@@ -1,6 +1,4 @@
 import Constants.FILE_PATH
-
-import scala.io.Source
 import scala.io.Source.fromFile
 import scala.io.StdIn.readLine
 object Operations {
@@ -36,6 +34,7 @@ object Operations {
   val finalStates = parts(2).split(',').flatMap(_.toCharArray) //.flatMap(state => state.toCharArray
 
   (transitions, initialState, finalStates)
+
  }
 
   /**
@@ -100,7 +99,7 @@ object Operations {
 
       // Llamar a la función para validar y procesar la cadena de entrada
       if (inputString.toLowerCase() != "fin") {
-        processWord(inputString, new Automata(initialState, finalStates, transitions), initialState)
+        processWord(inputString, new Automata(finalStates, transitions), initialState)
       }
     }
 

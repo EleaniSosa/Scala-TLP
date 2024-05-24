@@ -1,4 +1,4 @@
-class Automata(initialState:Char, finalStates:Array[Char],transitionsArg:Array[Transition]){
+class Automata(finalStates:Array[Char],transitionsArg:Array[Transition]){
   //guardar argumentos
   var finalStes: Array[Char] = finalStates
   var transitions: Array[Transition] = transitionsArg
