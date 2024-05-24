@@ -11,7 +11,7 @@
  
 ___
 
-**Links**
+**Accesos directos**
 
 - [Programa en scala](https://github.com/EleaniSosa/Scala-TLP/tree/main/Automata_Scala/src/main/scala)
 - [Documentación del lenguaje](https://github.com/EleaniSosa/Scala-TLP/blob/main/Documentacion/Proyecto%20final.%20FASE%202.%20Teor%C3%ADa%20de%20lenguajes%20de%20programaci%C3%B3n.pdf)
